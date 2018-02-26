@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Main : MonoBehaviour {
-	public GameObject pickup1;
-	public GameObject pickup2;
+	public GameObject enemy1;
+	public GameObject enemy2;
 	public int rand;
 	public int rand2;
-	public int rand3;
-	public int rand4;
+	public int count;
 	float camWidth;
 	float camHeight;
 	// Use this for initialization
 	void Start () 
 	{
-		rand = Random.Range (-28, 28);
-		rand2 = Random.Range (-28, 28);
-		rand3 = Random.Range (-28, 28);
-		rand4 = Random.Range (-28, 28);
+		
 		camWidth = Camera.main.pixelWidth;
 		camHeight = Camera.main.pixelHeight;
 		StartEnemies ();
@@ -27,16 +23,21 @@ public class Main : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		count++;
 
+		if (count % 200 == 0)
+			StartEnemies ();
 	}
 
 	public void StartEnemies()
 	{
-		GameObject gObj1 = Instantiate<GameObject> (pickup1);
-		GameObject gObj2 = Instantiate<GameObject> (pickup2);
-		gObj1.transform.position = new Vector3(rand, 35f, 0f);
+		rand = Random.Range (-28, 28);
+		rand2 = Random.Range (-28, 28);
+		GameObject gObj1 = Instantiate<GameObject> (enemy1);
+		GameObject gObj2 = Instantiate<GameObject> (enemy2);
+		gObj1.transform.position = new Vector3(rand, 41f, 0f);
 		gObj1.transform.rotation = Quaternion.Euler (90, -90, 90);
-		gObj2.transform.position = new Vector3(rand2, 35f, 0f);
+		gObj2.transform.position = new Vector3(rand2, 41f, 0f);
 	}
 
 	void OnDrawGizmos ()
@@ -45,5 +46,6 @@ public class Main : MonoBehaviour {
 		Vector3 boundSize = new Vector3(camWidth* 2, camHeight* 2, 0.1f); 
 		Gizmos.DrawWireCube(Vector3.zero, boundSize);
 	}
+
 
 }

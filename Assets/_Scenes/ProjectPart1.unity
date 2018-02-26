@@ -478,12 +478,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a32648c8168724f02a3d3cf6c40922c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickup1: {fileID: 1703517257769646, guid: 9162e40685ed8394195214ad9b1db46c, type: 2}
-  pickup2: {fileID: 1260384304985684, guid: ccc325a751e1bc44e82c4f75ec89964b, type: 2}
+  enemy1: {fileID: 1703517257769646, guid: 9162e40685ed8394195214ad9b1db46c, type: 2}
+  enemy2: {fileID: 1260384304985684, guid: ccc325a751e1bc44e82c4f75ec89964b, type: 2}
   rand: 0
   rand2: 0
-  rand3: 0
-  rand4: 0
+  count: 0
 --- !u!1 &2130961832
 GameObject:
   m_ObjectHideFlags: 0

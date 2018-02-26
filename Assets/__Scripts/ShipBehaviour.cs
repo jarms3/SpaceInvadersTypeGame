@@ -5,8 +5,8 @@ using UnityEngine;
 public class ShipBehaviour : MonoBehaviour
 {
 	public float speed = 30;
-	public float rotate1 = -45;
-	public float rotate2 = 30;
+	public float rotate1 = 45;
+	public float rotate2 = -30;
 
 	// Use this for initialization
 	void Start ()
@@ -21,8 +21,11 @@ public class ShipBehaviour : MonoBehaviour
 		pos.y = Mathf.Clamp(pos.y, 0.04f, 0.96f);
 		transform.position = Camera.main.ViewportToWorldPoint(pos);
 		
-		float xAxis = Input.GetAxis ("Horizontal");
+		float xAxis = Input.GetAxis ("Horizontal");		
 		float yAxis = Input.GetAxis ("Vertical");
+
+		//float xAxis = 0f;		
+		//float yAxis = 0f;
 
 		Vector3 move = transform.position;
 
@@ -30,7 +33,7 @@ public class ShipBehaviour : MonoBehaviour
 		move.y += yAxis * speed * Time.deltaTime;
 		transform.position = move;
 
-		transform.rotation = Quaternion.Euler ((yAxis * rotate2) - 90, xAxis * rotate1, 0);
+		transform.rotation = Quaternion.Euler ((yAxis * rotate2*-1)-90, (xAxis * rotate1), 0);
 		
 	}
 }

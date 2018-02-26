@@ -6,7 +6,8 @@ public class Enemy0Movement : Main {
 
 	public float speed = 0.1f;
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 	}
 	
 	// Update is called once per frame
