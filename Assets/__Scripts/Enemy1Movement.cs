@@ -5,8 +5,8 @@ using UnityEngine;
 public class Enemy1Movement : Main 
 {
 
-	public float speed = 0.01f;
-	public int i = 0;
+	public float speed = 0.0001f;
+	public float i = 0;
 	public int random;
 	GameObject holder;
 	// Use this for initialization
@@ -18,7 +18,7 @@ public class Enemy1Movement : Main
 	// Update is called once per frame
 	void Update () 
 	{
-		i++;
+		i = i + 0.5f;
 
 		if (random == 1) 
 		{

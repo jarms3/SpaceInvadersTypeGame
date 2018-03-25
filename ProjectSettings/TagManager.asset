@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Ship
+  - ProjectileShip
+  - ProjectileEnemy
+  - PowerUp
+  - PowerUpBox
+  - ProjectileHero
   layers:
   - Default
   - TransparentFX
@@ -14,12 +20,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ship
+  - Enemy
+  - ProjectileShip
+  - ProjectileEnemy
+  - PowerUp
+  - ProjectileHero
   - 
   - 
   - 
