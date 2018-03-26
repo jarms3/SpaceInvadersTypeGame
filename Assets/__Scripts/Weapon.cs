@@ -38,7 +38,7 @@ public class Weapon : MonoBehaviour {
 	{
 
 		Projectile p;
-		Vector3 v = Vector3.up * 40;
+		Vector3 v = Vector3.up * 50;
 
 		switch (Main.s._type) 
 		{
@@ -54,9 +54,11 @@ public class Weapon : MonoBehaviour {
 				p.rigid.velocity = v;
 				p = makeProjectile ();
 				p.transform.rotation = Quaternion.AngleAxis (30, Vector3.back);
+				p.transform.position = p.transform.position + new Vector3 (0.4f, 0, 0);
 				p.rigid.velocity = p.transform.rotation * v;
 				p = makeProjectile ();
 				p.transform.rotation = Quaternion.AngleAxis (-30, Vector3.back);
+				p.transform.position = p.transform.position + new Vector3 (-0.4f, 0, 0);
 				p.rigid.velocity = p.transform.rotation * v;
 				break;
 			}
@@ -69,7 +71,6 @@ public class Weapon : MonoBehaviour {
 		GameObject go = Instantiate (projectilePrefab);
 		go.transform.position = gameObject.transform.position;
 		Projectile p = go.GetComponent<Projectile> ();
-		shotDelay = Time.time;
 
 		return(p);
 	}

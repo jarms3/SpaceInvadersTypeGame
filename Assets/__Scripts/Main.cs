@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum WeaponType {none,simple,blaster};
 
@@ -19,12 +20,6 @@ public class Main : MonoBehaviour {
 
 	public WeaponType _type = WeaponType.simple;
 
-	public WeaponType type
-	{
-		get {
-			return(_type);
-		}
-	}
 
 
 	// Use this for initialization
@@ -87,5 +82,19 @@ public class Main : MonoBehaviour {
 		simpleButton.gameObject.SetActive(false);
 		blasterButton.gameObject.SetActive (false);
 
+	}
+
+	public void DelayedRestart(float delay){
+		Invoke ("Restart", delay);
+	}
+
+	public void Restart(){
+		Scene scene = SceneManager.GetActiveScene ();
+		SceneManager.LoadScene (scene.name);
+
+		if (ShipBehaviour.highScore < ShipBehaviour.S.score) {
+			ShipBehaviour.highScore = ShipBehaviour.S.score;
+			ShipBehaviour.S.highScoreText.text = "Highscore: " + ShipBehaviour.highScore;
+		}
 	}
 }

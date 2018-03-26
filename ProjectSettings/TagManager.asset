@@ -12,6 +12,7 @@ TagManager:
   - PowerUpBox
   - ProjectileHero
   - Button
+  - StrongEnemy
   layers:
   - Default
   - TransparentFX

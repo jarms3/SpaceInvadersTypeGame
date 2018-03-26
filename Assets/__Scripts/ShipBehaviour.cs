@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipBehaviour : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class ShipBehaviour : MonoBehaviour
 	public float projectileSpeed = 40;
 	public GameObject lastTriggerGo;
 	public Projectile p;
+	public Text scoreText;
+	public int score = 0;
+	public Text highScoreText;
+	public static int highScore = 0;
 
 
 	public delegate void WeaponFireDelegate ();
@@ -75,7 +80,7 @@ public class ShipBehaviour : MonoBehaviour
 		}
 		lastTriggerGo = go;
 
-		if (go.tag == "Enemy") {
+		if (go.tag == "Enemy" || go.tag == "StrongEnemy") {
 			shieldLevel--;
 			Destroy (go);
 		}
@@ -93,6 +98,7 @@ public class ShipBehaviour : MonoBehaviour
 			_shieldLevel = Mathf.Min (value, 4);
 			if (value < -1) {
 				Destroy (this.gameObject);
+				Main.s.DelayedRestart (2);
 			}
 			}
 		}

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy0Movement : Main {
 
 	public float speed = 0.1f;
+	public static int counter = 0;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -19,9 +21,13 @@ public class Enemy0Movement : Main {
 
 		gameObject.transform.position = move * speed + gameObject.transform.position;
 
-		if (gameObject.GetComponent<BoundsCheck> ().LetsGo && this.gameObject.tag == "Enemy") 
+		if (gameObject.GetComponent<BoundsCheck> ().LetsGo && this.gameObject.tag == "StrongEnemy") 
 		{
-				Destroy (this.gameObject);
+				
+			counter++;
+			print (counter);
+			Destroy (this.gameObject);
+			Projectile.chub = 0;
 		}
 
 	}
