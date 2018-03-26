@@ -20,10 +20,4 @@ public class Shieldy : MonoBehaviour {
 			mat.mainTextureOffset = new Vector2 (0.2f * levelShown, 0);
 		}
 	}
-
-	void OnTriggerEnter(Collider other) {
-
-		// Otherwise announce the original other.gameObject
-		Debug.Log("Triggered: " + other.gameObject.name);
-	}
 }

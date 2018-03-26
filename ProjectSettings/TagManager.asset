@@ -11,6 +11,7 @@ TagManager:
   - PowerUp
   - PowerUpBox
   - ProjectileHero
+  - Button
   layers:
   - Default
   - TransparentFX

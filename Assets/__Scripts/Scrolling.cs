@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scolling : MonoBehaviour {
+public class Scrolling : MonoBehaviour {
 	
 	public float scrollSpeed;
 	public float tileSize;

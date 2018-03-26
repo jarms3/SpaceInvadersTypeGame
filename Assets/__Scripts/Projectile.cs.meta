@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: decdff6571730444e9ba44c03aa3fb05
+timeCreated: 1522011322
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - simpleButton: {fileID: 1248900454664744, guid: f5e8b5bf17cc45d4f842ff20d88496f8,
+      type: 2}
+  - blasterButton: {fileID: 1779809511507722, guid: b5bb90d4c6566f64984cc70832865cf7,
+      type: 2}
+  - projectileButton: {fileID: 1755468068166146, guid: 4697a168f0428b741a3c18a8ddbf0888,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

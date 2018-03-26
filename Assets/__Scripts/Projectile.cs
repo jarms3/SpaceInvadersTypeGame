@@ -1,14 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Projectile : MonoBehaviour {
 
-	private BoundsCheck bndCheck;
+	public BoundsCheck bndCheck;
+	public Rigidbody rigid;
+
 
 
 	void Awake (){
 
 		bndCheck = GetComponent<BoundsCheck> ();
+		rigid = GetComponent<Rigidbody> ();
 	}
 
 	// Use this for initialization
@@ -19,16 +23,14 @@ public class Projectile : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (bndCheck.LetsGo) {
-			Destroy (gameObject);
-		}
+		/*if (bndCheck.LetsGo) {
+			Destroy (this.gameObject);
+		}*/
+
+
 
 	}
 	void OnCollisionEnter (Collision coll) {
-
-		Debug.Log ("Enter called");
-
-		print ("Collision");
 
 		GameObject otherGO = coll.gameObject;
 		if (otherGO.tag == "Enemy") {
@@ -40,4 +42,7 @@ public class Projectile : MonoBehaviour {
 		}
 
 	}
+
+
+		
 }

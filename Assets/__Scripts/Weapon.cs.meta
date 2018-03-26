@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 278ec52389fe1c24ea9d6e9ac97fd866
+timeCreated: 1522027928
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - p: {instanceID: 0}
+  - projectilePrefab: {fileID: 1689405131647672, guid: 55275916b886d3e4da41a15828bcda0c,
+      type: 2}
+  - simpleButton: {instanceID: 0}
+  - blasterButton: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

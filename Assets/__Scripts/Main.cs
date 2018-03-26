@@ -1,29 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+
+public enum WeaponType {none,simple,blaster};
 
 public class Main : MonoBehaviour {
 	public GameObject enemy1;
 	public GameObject enemy2;
+	static public Main s;
+	public Button simpleButton;
+	public Button blasterButton;
 	public int rand;
 	public int rand2;
 	public int count;
 	float camWidth;
 	float camHeight;
 
-	public enum WeaponType
+	public WeaponType _type = WeaponType.simple;
+
+	public WeaponType type
 	{
-		simple,
-		blaster,
-		rockets
-		
+		get {
+			return(_type);
+		}
 	}
+
+
 	// Use this for initialization
 	void Start () 
 	{
-		
+		s = this;
 		camWidth = Camera.main.pixelWidth;
 		camHeight = Camera.main.pixelHeight;
+		simpleButton.gameObject.SetActive(false);
+		blasterButton.gameObject.SetActive (false);
 		StartEnemies ();
 	}
 
@@ -35,6 +46,11 @@ public class Main : MonoBehaviour {
 
 		if (count % 200 == 0)
 			StartEnemies ();
+
+		if (Input.GetKey (KeyCode.E)) {
+			simpleButton.gameObject.SetActive(true);
+			blasterButton.gameObject.SetActive (true);
+		}
 	}
 
 	public void StartEnemies()
@@ -48,6 +64,7 @@ public class Main : MonoBehaviour {
 		gObj2.transform.position = new Vector3(rand2, 41f, 0f);
 	}
 
+
 	void OnDrawGizmos ()
 	{
 		if (!Application.isPlaying) return;
@@ -55,16 +72,20 @@ public class Main : MonoBehaviour {
 		Gizmos.DrawWireCube(Vector3.zero, boundSize);
 	}
 
-	public void Weapon(WeaponType weap)
+
+	public void setSimple()
 	{
-		/*switch (weap) 
-		{
-			case WeaponType.simple
-			{
-				
-			}
-		}*/
+		_type = WeaponType.simple;
+		simpleButton.gameObject.SetActive(false);
+		blasterButton.gameObject.SetActive (false);
+
 	}
 
+	public void setBlaster()
+	{
+		_type = WeaponType.blaster;
+		simpleButton.gameObject.SetActive(false);
+		blasterButton.gameObject.SetActive (false);
 
+	}
 }
