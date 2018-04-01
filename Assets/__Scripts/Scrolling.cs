@@ -14,7 +14,7 @@ public class Scrolling : MonoBehaviour {
 	{
 		startPosition = transform.position;
 	}
-	
+
 	// Update is called once per frame
 	void Update () 
 	{

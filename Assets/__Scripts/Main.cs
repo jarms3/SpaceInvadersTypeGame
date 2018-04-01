@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum WeaponType {none,simple,blaster};
+public enum WeaponType {none,simple,blaster,explosion,seeker};
 
 public class Main : MonoBehaviour {
 	public GameObject enemy1;
@@ -12,6 +12,8 @@ public class Main : MonoBehaviour {
 	static public Main s;
 	public Button simpleButton;
 	public Button blasterButton;
+	public Button explosiveButton;
+	public Button seekerButton;
 	public int rand;
 	public int rand2;
 	public int count;
@@ -30,6 +32,8 @@ public class Main : MonoBehaviour {
 		camHeight = Camera.main.pixelHeight;
 		simpleButton.gameObject.SetActive(false);
 		blasterButton.gameObject.SetActive (false);
+		explosiveButton.gameObject.SetActive (false);
+		seekerButton.gameObject.SetActive (false);
 		StartEnemies ();
 	}
 
@@ -45,6 +49,9 @@ public class Main : MonoBehaviour {
 		if (Input.GetKey (KeyCode.E)) {
 			simpleButton.gameObject.SetActive(true);
 			blasterButton.gameObject.SetActive (true);
+			explosiveButton.gameObject.SetActive (true);
+			seekerButton.gameObject.SetActive (true);
+
 		}
 	}
 
@@ -73,7 +80,8 @@ public class Main : MonoBehaviour {
 		_type = WeaponType.simple;
 		simpleButton.gameObject.SetActive(false);
 		blasterButton.gameObject.SetActive (false);
-
+		explosiveButton.gameObject.SetActive (false);
+		seekerButton.gameObject.SetActive (false);
 	}
 
 	public void setBlaster()
@@ -81,7 +89,26 @@ public class Main : MonoBehaviour {
 		_type = WeaponType.blaster;
 		simpleButton.gameObject.SetActive(false);
 		blasterButton.gameObject.SetActive (false);
+		explosiveButton.gameObject.SetActive (false);
+		seekerButton.gameObject.SetActive (false);
+	}
 
+	public void setExplosive()
+	{
+		_type = WeaponType.explosion;
+		simpleButton.gameObject.SetActive(false);
+		blasterButton.gameObject.SetActive (false);
+		explosiveButton.gameObject.SetActive (false);
+		seekerButton.gameObject.SetActive (false);
+	}
+
+	public void setSeeker()
+	{
+		_type = WeaponType.seeker;
+		simpleButton.gameObject.SetActive(false);
+		blasterButton.gameObject.SetActive (false);
+		explosiveButton.gameObject.SetActive (false);
+		seekerButton.gameObject.SetActive (false);
 	}
 
 	public void DelayedRestart(float delay){
@@ -94,7 +121,9 @@ public class Main : MonoBehaviour {
 
 		if (ShipBehaviour.highScore < ShipBehaviour.S.score) {
 			ShipBehaviour.highScore = ShipBehaviour.S.score;
-			ShipBehaviour.S.highScoreText.text = "Highscore: " + ShipBehaviour.highScore;
+			ShipBehaviour.highScoreText.text = "Highscore: " + ShipBehaviour.highScore;
 		}
 	}
 }
+
+

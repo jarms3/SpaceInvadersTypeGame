@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class Weapon : MonoBehaviour {
@@ -11,9 +10,6 @@ public class Weapon : MonoBehaviour {
 	public float projectileSpeed = 40;
 	public float delayTime = 0.2f;
 	public float shotDelay = 0;
-	public Button simpleButton;
-	public Button blasterButton;
-
 
 
 
@@ -39,6 +35,8 @@ public class Weapon : MonoBehaviour {
 
 		Projectile p;
 		Vector3 v = Vector3.up * 50;
+		GameObject enemy0 = GameObject.Find ("Enemy_0(Clone)");
+		GameObject enemy1 = GameObject.Find ("Enemy_1(Clone)");
 
 		switch (Main.s._type) 
 		{
@@ -60,6 +58,26 @@ public class Weapon : MonoBehaviour {
 				p.transform.rotation = Quaternion.AngleAxis (-30, Vector3.back);
 				p.transform.position = p.transform.position + new Vector3 (-0.4f, 0, 0);
 				p.rigid.velocity = p.transform.rotation * v;
+				break;
+			}
+			case WeaponType.explosion:
+			{
+				
+				if (enemy0 != null)
+					Destroy (enemy0);
+				if (enemy1 != null)
+					Destroy (enemy1);
+				break;
+			}
+			case WeaponType.seeker:
+			{
+				Transform target;
+
+				if (enemy0.transform.position.y < enemy1.transform.position.y)
+					target = enemy0.transform;
+				else
+					target = enemy1.transform;
+
 				break;
 			}
 		}

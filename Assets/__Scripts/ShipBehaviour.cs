@@ -16,7 +16,7 @@ public class ShipBehaviour : MonoBehaviour
 	public Projectile p;
 	public Text scoreText;
 	public int score = 0;
-	public Text highScoreText;
+	public static Text highScoreText;
 	public static int highScore = 0;
 
 
